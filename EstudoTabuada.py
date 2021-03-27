@@ -192,5 +192,5 @@ while True:
         print('\033[1;32m   VOLTE SEMPRE -->\033[m \033[1;97mNunca se esqueça de estudar bastante!\033[m')
         print(f'\033[1;32m{"PROGRAMA ENCERRADO!":^60}\033[m')
         print('\033[1;31m-=\033[m' * 30)
-        sleep(4)
+        sleep(3)
         break
