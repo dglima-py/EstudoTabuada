@@ -163,6 +163,11 @@ def teste_conhecimento():
             break
 
 
+# Função que faz o teste aleatório de 10 perguntas
+def teste_aleatorio():
+    tab = []
+
+
 def voltar():
     while True:
         try:
