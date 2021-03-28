@@ -94,7 +94,7 @@ def teste_conhecimento():
                         print('Opção Inválida, tenta novamente!')
                 except ValueError:
                     print('Opção Inválida, tenta novamente!')
-            # Gera 6 perguntas aleatórias da tabuada escolha, eliminando a possibilidade de perguntas repetidas
+            # Gera 6 perguntas aleatórias da tabuada escolhida, eliminando a possibilidade de perguntas repetidas
             repetidas = []
             resultado = []
             x = 0
@@ -105,7 +105,7 @@ def teste_conhecimento():
                 while x in repetidas:
                     x = randint(0, 10)
                 repetidas.append(x)
-                perg = str(escolha) + str(' x ') + str(x)
+                perg = str(escolha) + str(' x ') + str(f'{x:>2}')
                 verf = escolha * x
                 while True:
                     try:
@@ -118,6 +118,7 @@ def teste_conhecimento():
                 else:
                     status = 'Errada'
                 lista_temp = [c+1, perg, resp, status, verf]
+#                lista_temp = [c+1, escolha, x, resp, status, verf]
                 resultado.append(lista_temp[:])
                 lista_temp.clear()
             print('\033[1;33m*\033[m' * 60)
@@ -126,7 +127,7 @@ def teste_conhecimento():
             for p in resultado:
                 print(f'{p[0]}ª pergunta: {p[1]} = ', flush=True, end='')
                 sleep(0.5)
-                print(f'{p[2]} ', flush=True, end='')
+                print(f'{p[2]:>2} ', flush=True, end='')
                 sleep(0.5)
                 print('-', flush=True, end='')
                 sleep(0.5)
