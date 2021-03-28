@@ -118,7 +118,6 @@ def teste_conhecimento():
                 else:
                     status = 'Errada'
                 lista_temp = [c+1, perg, resp, status, verf]
-#                lista_temp = [c+1, escolha, x, resp, status, verf]
                 resultado.append(lista_temp[:])
                 lista_temp.clear()
             print('\033[1;33m*\033[m' * 60)
@@ -136,7 +135,7 @@ def teste_conhecimento():
                 print('> ', flush=True, end='')
                 sleep(0.5)
                 if p[3] == 'Certa':
-                    print(f'\033[1;32m {p[3]}\033[m', flush=True)
+                    print(f'\033[1;32m{p[3]}\033[m', flush=True)
                     tot_ac += 1
                 else:
                     print(f'\033[1;31m{p[3]}\033[m', flush=True, end='')
@@ -159,14 +158,81 @@ def teste_conhecimento():
             voltar()
             print()
         elif tipo == 2:
-            print('em construção')
+        # Função que faz o teste aleatório de 10 perguntas
+            x = []
+            y = []
+            # Gerando os números aleatórios que formaram as perguntas, sem repetir as perguntas
+            exclusivo = []
+            for c in range(0, 10):
+                while True:
+                    x1 = randint(2, 9)
+                    y1 = randint(2, 9)
+                    w = str(x1) + str(y1)
+                    w1 = str(y1) + str(x1)
+                    if w not in exclusivo or w1 not in exclusivo:
+                        exclusivo.append(str(x1) + str(y1))
+                        exclusivo.append(str(y1) + str(x1))
+                        break
+                x.append(x1)
+                y.append(y1)
+            # Faz as 10 perguntas para o usuário e coleta as respostas em uma lista
+            gabarito = []
+            tot_ac = 0
+            for c in range(0, 10):
+                verf = x[c] * y[c]
+                perg = str(f'{x[c]}') + str(' x ') + str(y[c])
+                while True:
+                    try:
+                        resp = int(input(f'{c + 1:>2}ª pergunta: {x[c]} x {y[c]} = '))
+                        break
+                    except ValueError:
+                        print('Um valor precisa ser digitado!')
+                if resp == verf:
+                    sit = "Certa"
+                    tot_ac += 1
+                else:
+                    sit = "Errada"
+                lista = [c+1, perg, resp, sit, verf]
+                gabarito.append(lista[:])
+                lista.clear
+            # Faz o tratamento das respostas e exibe
+            print('\033[1;33m*\033[m' * 60)
+            print('\033[1;97mAnálisando seu resultado ...\033[m')
+            for g in gabarito:
+                print(f'{g[0]:>2}ª pergunta: {g[1]} = ', flush=True, end='')
+                sleep(0.5)
+                print(f'{g[2]:>2} ', flush=True, end='')
+                sleep(0.5)
+                print('-', flush=True, end='')
+                sleep(0.5)
+                print('-', flush=True, end='')
+                sleep(0.5)
+                print('> ', flush=True, end='')
+                sleep(0.5)
+                if g[3] == 'Certa':
+                    print(f'\033[1;32m{g[3]}\033[m', flush=True)
+                else:
+                    print(f'\033[1;31m{g[3]}\033[m', flush=True, end='')
+                    sleep(0.5)
+                    print(f' >> Resposta correta é: ', flush=True, end='')
+                    sleep(1)
+                    print(f'\033[1;32m{g[4]}\033[m', flush=True)
+            print()
+            print('\033[1;33m-\033[m' * 60, flush=True)
+            print('\033[1;33mResumo:\033[m ')
+            print(f'\033[1;97mVocê acertou\033[m \033[1;34m{tot_ac}\033[m \033[1;97mresposta, com um aproveitamento de'
+                  f'\033[1;34m {(tot_ac/10)*100:.1f}%\033[m\033[1;97m.\033[m')
+            if (tot_ac / 10) >= 0.8:
+                print(f'\033[1;32mParabéns, você foi muito bem, continue estudando!!\033[m')
+            else:
+                print(f'\033[1;31mVocê precisa estudar mais, NUNCA DESISTA!\033[m')
+            print('\033[1;33m-\033[m' * 60, flush=True)
+            print()
+            sleep(2)
+            voltar()
+            print()
         elif tipo == 3:
             break
-
-
-# Função que faz o teste aleatório de 10 perguntas
-def teste_aleatorio():
-    tab = []
 
 
 def voltar():
