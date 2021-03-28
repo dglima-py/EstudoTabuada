@@ -178,6 +178,9 @@ def teste_conhecimento():
             # Faz as 10 perguntas para o usuário e coleta as respostas em uma lista
             gabarito = []
             tot_ac = 0
+            print('\033[1;33m*\033[m' * 60)
+            print('\033[1;32mVamos lá, boa sorte!\033[m')
+            print('\033[1;97mResponda as perguntas abaixo: \033[m')
             for c in range(0, 10):
                 verf = x[c] * y[c]
                 perg = str(f'{x[c]}') + str(' x ') + str(y[c])
