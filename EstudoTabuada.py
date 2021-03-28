@@ -141,8 +141,9 @@ def teste_conhecimento():
                     print(f'\033[1;31m{p[3]}\033[m', flush=True, end='')
                     sleep(0.5)
                     print(f' >> Resposta correta é: ', flush=True, end='')
-                    sleep(1)
+                    sleep(0.5)
                     print(f'\033[1;32m{p[4]}\033[m', flush=True)
+            sleep(1)
             print()
             print('\033[1;33m-\033[m' * 60, flush=True)
             print('\033[1;33mResumo:\033[m ')
@@ -156,6 +157,7 @@ def teste_conhecimento():
             print()
             sleep(2)
             voltar()
+            limpar_tela()
             print()
         elif tipo == 2:
         # Função que faz o teste aleatório de 10 perguntas
@@ -218,8 +220,9 @@ def teste_conhecimento():
                     print(f'\033[1;31m{g[3]}\033[m', flush=True, end='')
                     sleep(0.5)
                     print(f' >> Resposta correta é: ', flush=True, end='')
-                    sleep(1)
+                    sleep(0.5)
                     print(f'\033[1;32m{g[4]}\033[m', flush=True)
+            sleep(1)
             print()
             print('\033[1;33m-\033[m' * 60, flush=True)
             print('\033[1;33mResumo:\033[m ')
@@ -233,6 +236,7 @@ def teste_conhecimento():
             print()
             sleep(2)
             voltar()
+            limpar_tela()
             print()
         elif tipo == 3:
             break
